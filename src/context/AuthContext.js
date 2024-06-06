@@ -3,6 +3,7 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Navigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -51,7 +52,8 @@ export const AuthProvider = ({ children }) => {
     delete axios.defaults.headers.common["auth-token"];
     toast.success("Logout Success");
     setIsAuthenticated(false);
-    window.location.replace("/login");
+    <Navigate to="/login" />;
+    // window.location.replace("/login");
   };
 
   return (
